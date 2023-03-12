@@ -14,7 +14,7 @@ import java.util.List;
 
 
 @RestController
-public class UsersController {
+public class UserController {
 
     @Autowired
     private UserService userService;
@@ -28,7 +28,6 @@ public class UsersController {
 	public User getUser(@PathVariable Long id) {
 		return userService.getUser(id);
 	}
-
 
 	@PostMapping("/users")
 	public void createUser(@RequestBody User user) {
