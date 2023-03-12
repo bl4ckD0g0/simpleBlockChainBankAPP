@@ -6,6 +6,7 @@ import com.alexdev.bankapp.entities.User;
 import com.alexdev.bankapp.repositories.UserRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 
 public class UserServiceImpl implements UserService {
@@ -20,13 +21,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUser(Long id) {
-        return userRepository.findById(id).get();
+        Optional<User> optionalUser = userRepository.findById(id);
+        if(optionalUser.isPresent())
+            return optionalUser.get();
+        return null;
     }
 
     @Override
     public void createUser(User user) {
         userRepository.save(user);
     }
-
 
 }

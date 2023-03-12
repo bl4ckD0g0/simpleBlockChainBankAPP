@@ -5,7 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,5 +26,4 @@ public class Wallet {
 
     @Column(name ="ID_USER_PROPIETARY")
     private long walletPropietary;
-
 }
