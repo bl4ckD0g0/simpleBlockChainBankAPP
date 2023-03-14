@@ -11,4 +11,8 @@ public interface WalletService {
     public Wallet getWallet(Long id);
 
     public void createWallet(Wallet wallet);
+
+    public void depositMoney(Long walletId, Float amount);
+
+    
 }

@@ -33,7 +33,25 @@ public class WalletServiceImpl implements WalletService {
         if(Objects.nonNull(userRepository.findById(wallet.getWalletPropietary())))
             walletRepository.save(wallet);
         else
-            System.out.println("There is no user with the provided ID");
+            System.out.println("There is no user with the provided ID"); //TODO: Send info to the input
     }
+
+
+    @Override
+    public void depositMoney(Long walletId, Float amount) {
+
+        Wallet modifiedWallet, originalWallet; 
+        modifiedWallet = originalWallet = walletRepository.findById(walletId).get();
+
+        modifiedWallet.setAccountBalance(originalWallet.getAccountBalance() + amount);
+
+        walletRepository.delete(originalWallet);
+        walletRepository.save(modifiedWallet);
+    }
+
     
+
+    //TODO: Check if the wallet exists
+    //TODO: The User should be the owner of the Wallet.
+
 }

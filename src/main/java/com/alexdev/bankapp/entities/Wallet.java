@@ -22,7 +22,7 @@ public class Wallet {
     private long id;
 
     @Column(name ="ACCOUNT_BALANCE")
-    private String accountBalance;
+    private float accountBalance;
 
     @Column(name ="ID_USER_PROPIETARY")
     private long walletPropietary;
