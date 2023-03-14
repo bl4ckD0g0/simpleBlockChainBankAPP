@@ -36,22 +36,19 @@ public class WalletServiceImpl implements WalletService {
             System.out.println("There is no user with the provided ID"); //TODO: Send info to the input
     }
 
-
     @Override
     public void depositMoney(Long walletId, Float amount) {
-
-        Wallet modifiedWallet, originalWallet; 
-        modifiedWallet = originalWallet = walletRepository.findById(walletId).get();
-
-        modifiedWallet.setAccountBalance(originalWallet.getAccountBalance() + amount);
-
-        walletRepository.delete(originalWallet);
-        walletRepository.save(modifiedWallet);
+        Wallet wallet = walletRepository.findById(walletId).orElseThrow(() -> new WalletNotFoundException(walletId));
+        wallet.setAccountBalance(wallet.getAccountBalance() + amount);
+        walletRepository.save(wallet);
     }
-
-    
-
-    //TODO: Check if the wallet exists
     //TODO: The User should be the owner of the Wallet.
+
+
+    public static class WalletNotFoundException extends RuntimeException {
+        public WalletNotFoundException(Long walletId) {
+            super("Wallet " + walletId + " not found");
+        }
+    }
 
 }
