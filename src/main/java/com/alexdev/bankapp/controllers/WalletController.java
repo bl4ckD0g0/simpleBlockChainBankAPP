@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import com.alexdev.bankapp.entities.Wallet;
 import com.alexdev.bankapp.services.WalletService;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -30,7 +31,7 @@ public class WalletController {
 
 	@PutMapping(value = "/wallets/addMoney")
 	public void depositMoney(@RequestParam("walletId") String walletId, @RequestParam("amount") String amount) {
-		walletService.depositMoney(Long.parseLong(walletId), Float.parseFloat(amount));
+		walletService.depositMoney(Long.parseLong(walletId), new BigDecimal(amount));
 	}
 
 }

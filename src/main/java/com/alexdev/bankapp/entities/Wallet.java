@@ -1,5 +1,7 @@
 package com.alexdev.bankapp.entities;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,7 +24,7 @@ public class Wallet {
     private long id;
 
     @Column(name ="ACCOUNT_BALANCE")
-    private float accountBalance;
+    private BigDecimal accountBalance;
 
     @Column(name ="ID_USER_PROPIETARY")
     private long walletPropietary;

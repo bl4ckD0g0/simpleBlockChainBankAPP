@@ -6,6 +6,8 @@ import com.alexdev.bankapp.entities.Wallet;
 import com.alexdev.bankapp.repositories.UserRepository;
 import com.alexdev.bankapp.repositories.WalletRepository;
 
+import java.math.BigDecimal;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -37,9 +39,9 @@ public class WalletServiceImpl implements WalletService {
     }
 
     @Override
-    public void depositMoney(Long walletId, Float amount) {
+    public void depositMoney(Long walletId, BigDecimal amount) {
         Wallet wallet = walletRepository.findById(walletId).orElseThrow(() -> new WalletNotFoundException(walletId));
-        wallet.setAccountBalance(wallet.getAccountBalance() + amount);
+        wallet.setAccountBalance(wallet.getAccountBalance().add(amount));
         walletRepository.save(wallet);
     }
     //TODO: The User should be the owner of the Wallet.

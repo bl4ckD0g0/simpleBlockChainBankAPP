@@ -1,5 +1,6 @@
 package com.alexdev.bankapp.services;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import com.alexdev.bankapp.entities.Wallet;
@@ -12,7 +13,6 @@ public interface WalletService {
 
     public void createWallet(Wallet wallet);
 
-    public void depositMoney(Long walletId, Float amount);
+    public void depositMoney(Long walletId, BigDecimal amount);
 
-    
 }
