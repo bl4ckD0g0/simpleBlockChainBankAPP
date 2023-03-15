@@ -46,7 +46,6 @@ public class WalletServiceImpl implements WalletService {
     }
     //TODO: The User should be the owner of the Wallet.
 
-
     public static class WalletNotFoundException extends RuntimeException {
         public WalletNotFoundException(Long walletId) {
             super("Wallet " + walletId + " not found");

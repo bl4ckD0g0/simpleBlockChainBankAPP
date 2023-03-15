@@ -1,18 +1,20 @@
 package com.alexdev.bankapp.entities;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
-
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name ="USERS")
+@Table(name="USERS")
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
@@ -28,4 +30,7 @@ public class User {
     @Column(name ="ID_DOCUMENT")
     private String idDocument;
 
+    @OneToMany
+    private List<Wallet> walletList;
+    
 }
