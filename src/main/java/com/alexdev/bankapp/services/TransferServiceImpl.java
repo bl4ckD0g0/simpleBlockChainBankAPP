@@ -1,12 +1,17 @@
 package com.alexdev.bankapp.services;
 
+import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.alexdev.bankapp.entities.Transfer;
+import com.alexdev.bankapp.entities.Wallet;
 import com.alexdev.bankapp.repositories.TransferRepository;
 import com.alexdev.bankapp.repositories.WalletRepository;
+
+import jakarta.transaction.Transactional;
 
 import java.util.Optional;
 
@@ -32,9 +37,25 @@ public class TransferServiceImpl implements TransferService {
     }
 
     @Override
+    @Transactional
     public void createTransfer(Transfer transfer) {
-        //#TODO: UPDATE WALLETS
+        Wallet originWallet = walletRepository.findById(transfer.getOriginAccount());
+        Wallet destinyWallet = walletRepository.findById(transfer.getDestinyAccount());
+        BigDecimal amount = transfer.getAmount();
+        
+        if (originWallet.getAccountBalance().compareTo(amount) < 0)
+            throw new InsufficientFundsException("Insufficient balance in the source account");
+    
+        originWallet.setAccountBalance(originWallet.getAccountBalance().subtract(amount));
+        destinyWallet.setAccountBalance(destinyWallet.getAccountBalance().add(amount));
+        
+        walletRepository.saveAll(Arrays.asList(originWallet, destinyWallet));
         transferRepository.save(transfer);
     }
 
+    public class InsufficientFundsException extends RuntimeException {
+        public InsufficientFundsException(String message) {
+            super(message);
+        }
+    }
 }
