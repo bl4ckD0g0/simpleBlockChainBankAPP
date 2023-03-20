@@ -1,6 +1,7 @@
 package com.alexdev.bankapp.entities;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -28,4 +29,7 @@ public class Wallet {
 
     @Column(name ="ID_USER_PROPIETARY")
     private long walletPropietary;
+
+    //For history movements
+    private List<Transfer> listOfTransfers;
 }
