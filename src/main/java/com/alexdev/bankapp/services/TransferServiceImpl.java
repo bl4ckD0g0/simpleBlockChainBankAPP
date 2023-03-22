@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.alexdev.bankapp.entities.Deposit;
 import com.alexdev.bankapp.entities.Transfer;
 import com.alexdev.bankapp.entities.Wallet;
 import com.alexdev.bankapp.repositories.TransferRepository;
@@ -48,7 +49,15 @@ public class TransferServiceImpl implements TransferService {
     
         originWallet.setAccountBalance(originWallet.getAccountBalance().subtract(amount));
         destinyWallet.setAccountBalance(destinyWallet.getAccountBalance().add(amount));
+     
+        List<Deposit> bankMovements = originWallet.getBankMovements();  
+        bankMovements.add(transfer);
+        originWallet.setBankMovements(bankMovements);
         
+        bankMovements = destinyWallet.getBankMovements();  
+        bankMovements.add(transfer);
+        destinyWallet.setBankMovements(bankMovements);
+
         walletRepository.saveAll(Arrays.asList(originWallet, destinyWallet));
         transferRepository.save(transfer);
     }

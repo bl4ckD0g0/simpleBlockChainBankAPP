@@ -30,6 +30,6 @@ public class Wallet {
     @Column(name ="ID_USER_PROPIETARY")
     private long walletPropietary;
 
-    //For history movements
-    private List<Transfer> listOfTransfers;
+    @Column(name ="MOVEMENTS")
+    private List<Deposit> bankMovements;
 }
