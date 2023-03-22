@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "TRANSFER")
+@Table(name = "DEPOSIT")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Deposit {
