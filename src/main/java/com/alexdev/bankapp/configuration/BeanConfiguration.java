@@ -3,6 +3,7 @@ package com.alexdev.bankapp.configuration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.alexdev.bankapp.services.DepositServiceImpl;
 import com.alexdev.bankapp.services.TransferServiceImpl;
 import com.alexdev.bankapp.services.UserServiceImpl;
 import com.alexdev.bankapp.services.WalletServiceImpl;
@@ -23,6 +24,11 @@ public class BeanConfiguration {
     @Bean
     public TransferServiceImpl getTransferServiceImpl(){
         return new TransferServiceImpl();
+    }
+
+    @Bean
+    public DepositServiceImpl getDepositServiceImpl(){
+        return new DepositServiceImpl();
     }
 
 }
