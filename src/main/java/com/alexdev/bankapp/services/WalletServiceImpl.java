@@ -2,14 +2,13 @@ package com.alexdev.bankapp.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.alexdev.bankapp.entities.User;
 import com.alexdev.bankapp.entities.Wallet;
 import com.alexdev.bankapp.repositories.UserRepository;
 import com.alexdev.bankapp.repositories.WalletRepository;
 
-import java.math.BigDecimal;
-
 import java.util.List;
-import java.util.Objects;
+import java.util.Optional;
 
 
 public class WalletServiceImpl implements WalletService {
@@ -31,25 +30,19 @@ public class WalletServiceImpl implements WalletService {
     }
 
     @Override
-    public void createWallet(Wallet wallet) {
-        if(Objects.nonNull(userRepository.findById(wallet.getWalletPropietary())))
+    public void createWallet(Wallet wallet) throws UserNotFoundException {
+        Optional<User> user = userRepository.findById(wallet.getWalletPropietary());
+        if(user.isPresent()) {
             walletRepository.save(wallet);
-        else
-            System.out.println("There is no user with the provided ID"); //TODO: Send info to the input
-    }
-
-    @Override
-    public void depositMoney(Long walletId, BigDecimal amount) {
-        Wallet wallet = walletRepository.findById(walletId).orElseThrow(() -> new WalletNotFoundException(walletId));
-        wallet.setAccountBalance(wallet.getAccountBalance().add(amount));
-        walletRepository.save(wallet);
-    }
-    //TODO: The User should be the owner of the Wallet.
-
-    public static class WalletNotFoundException extends RuntimeException {
-        public WalletNotFoundException(Long walletId) {
-            super("Wallet " + walletId + " not found");
+        } else {
+            throw new UserNotFoundException("There is no user with the provided ID");
         }
     }
 
+    
+    public class UserNotFoundException extends Exception {
+        public UserNotFoundException(String message) {
+            super(message);
+        }
+    }
 }

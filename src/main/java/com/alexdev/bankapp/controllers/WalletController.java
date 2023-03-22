@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.alexdev.bankapp.entities.Wallet;
 import com.alexdev.bankapp.services.WalletService;
+import com.alexdev.bankapp.services.WalletServiceImpl.UserNotFoundException;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -25,13 +25,7 @@ public class WalletController {
 	}
 
 	@PostMapping("/wallets")
-	public void createWallet(@RequestBody Wallet wallet) {
+	public void createWallet(@RequestBody Wallet wallet) throws UserNotFoundException {
 		walletService.createWallet(wallet);
 	}
-
-	@PutMapping(value = "/wallets/addMoney")
-	public void depositMoney(@RequestParam("walletId") String walletId, @RequestParam("amount") String amount) {
-		walletService.depositMoney(Long.parseLong(walletId), new BigDecimal(amount));
-	}
-
 }

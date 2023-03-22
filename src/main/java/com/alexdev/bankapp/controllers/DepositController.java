@@ -32,5 +32,4 @@ public class DepositController {
 	public void createDeposit(@RequestBody Deposit deposit) {
 		depositService.createDeposit(deposit);
 	}
-
 }

@@ -46,5 +46,4 @@ public class DepositServiceImpl implements DepositService {
         walletRepository.save(destinyWallet);
         depositRepository.save(deposit);
     }
-
 }
