@@ -33,6 +33,6 @@ public class Wallet {
     private long walletPropietary;
 
     @Column(name ="MOVEMENTS")
-    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Deposit> bankMovements;
 }

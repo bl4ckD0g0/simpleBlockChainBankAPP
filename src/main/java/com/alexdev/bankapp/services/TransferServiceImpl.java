@@ -1,6 +1,8 @@
 package com.alexdev.bankapp.services;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -50,15 +52,7 @@ public class TransferServiceImpl implements TransferService {
         originWallet.setAccountBalance(originWallet.getAccountBalance().subtract(amount));
         destinyWallet.setAccountBalance(destinyWallet.getAccountBalance().add(amount));
      
-        List<Deposit> bankMovements = originWallet.getBankMovements();  
-        bankMovements.add(transfer);
-        originWallet.setBankMovements(bankMovements);
-        
-        bankMovements = destinyWallet.getBankMovements();  
-        bankMovements.add(transfer);
-        destinyWallet.setBankMovements(bankMovements);
-
-        walletRepository.saveAll(Arrays.asList(originWallet, destinyWallet));
+        transfer.setTransferDate(LocalDateTime.now());
         transferRepository.save(transfer);
     }
 

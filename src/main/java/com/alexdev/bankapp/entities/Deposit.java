@@ -1,6 +1,7 @@
 package com.alexdev.bankapp.entities;
 
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Table;
 
 import java.math.BigDecimal;
@@ -26,6 +27,7 @@ public class Deposit {
     private long id;
 
     @Column(name ="ID_DESTINY_ACCOUNT")
+    @JoinColumn(name = "id")
     private long destinyAccount;
 
     @Column(name ="AMOUNT")

@@ -1,0 +1,8 @@
+INSERT INTO USERS (ID, FULL_NAME, ID_DOCUMENT) 
+    VALUES (1,'Karen', '80987645X'),
+           (2,'John', '65432198Y');
+           
+   
+INSERT INTO WALLET (ID, ACCOUNT_BALANCE, ID_USER_PROPIETARY)
+    VALUES (1, 24000, 1),
+           (2, 15000, 2);

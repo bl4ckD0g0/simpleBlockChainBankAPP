@@ -1,6 +1,7 @@
 package com.alexdev.bankapp.services;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,16 +35,18 @@ public class DepositServiceImpl implements DepositService {
 
     @Override
     public void createDeposit(Deposit deposit) {
-        Wallet destinyWallet = walletRepository.findById(deposit.getDestinyAccount());
+        Wallet wallet = walletRepository.findById(deposit.getDestinyAccount());
         BigDecimal amount = deposit.getAmount();
         
-        destinyWallet.setAccountBalance(destinyWallet.getAccountBalance().add(amount));
+        wallet.setAccountBalance(wallet.getAccountBalance().add(amount));
      
-        List<Deposit> bankMovements = destinyWallet.getBankMovements();  
+        List<Deposit> bankMovements = wallet.getBankMovements();  
         bankMovements.add(deposit);
-        destinyWallet.setBankMovements(bankMovements);
+        wallet.setBankMovements(bankMovements);
+  
+        walletRepository.save(wallet);
 
-        walletRepository.save(destinyWallet);
+        deposit.setTransferDate(LocalDateTime.now());
         depositRepository.save(deposit);
     }
 }
