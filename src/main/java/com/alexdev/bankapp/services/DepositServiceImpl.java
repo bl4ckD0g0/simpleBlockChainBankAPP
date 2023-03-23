@@ -35,16 +35,10 @@ public class DepositServiceImpl implements DepositService {
 
     @Override
     public void createDeposit(Deposit deposit) {
-        Wallet wallet = walletRepository.findById(deposit.getDestinyAccount());
+        Wallet wallet = walletRepository.findById(deposit.getAccount());
         BigDecimal amount = deposit.getAmount();
         
         wallet.setAccountBalance(wallet.getAccountBalance().add(amount));
-     
-        List<Deposit> bankMovements = wallet.getBankMovements();  
-        bankMovements.add(deposit);
-        wallet.setBankMovements(bankMovements);
-  
-        walletRepository.save(wallet);
 
         deposit.setTransferDate(LocalDateTime.now());
         depositRepository.save(deposit);

@@ -32,7 +32,10 @@ public class Wallet {
     @Column(name ="ID_USER_PROPIETARY")
     private long walletPropietary;
 
-    @Column(name ="MOVEMENTS")
+
     @OneToMany(cascade = CascadeType.ALL)
-    private List<Deposit> bankMovements;
+    private List<Transfer> transferHistory;
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Deposit> depositHistory;
 }

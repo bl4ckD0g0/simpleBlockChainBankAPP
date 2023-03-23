@@ -28,7 +28,7 @@ public class Deposit {
 
     @Column(name ="ID_DESTINY_ACCOUNT")
     @JoinColumn(name = "id")
-    private long destinyAccount;
+    private long account;
 
     @Column(name ="AMOUNT")
     private BigDecimal amount;
