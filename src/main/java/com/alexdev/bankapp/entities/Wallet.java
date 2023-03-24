@@ -13,6 +13,7 @@ import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Data
 @Entity
@@ -32,10 +33,10 @@ public class Wallet {
     @Column(name ="ID_USER_PROPIETARY")
     private long walletPropietary;
 
-
     @OneToMany(cascade = CascadeType.ALL)
     private List<Transfer> transferHistory;
     
-    @OneToMany(cascade = CascadeType.ALL)
+    @JsonManagedReference
+    @OneToMany(mappedBy="wallet")
     private List<Deposit> depositHistory;
 }
