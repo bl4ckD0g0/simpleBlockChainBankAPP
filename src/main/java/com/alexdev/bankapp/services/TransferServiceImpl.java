@@ -42,8 +42,8 @@ public class TransferServiceImpl implements TransferService {
     @Override
     @Transactional
     public void createTransfer(Transfer transfer) {
-        Wallet originWallet = walletRepository.findById(transfer.getOriginAccount());
-        Wallet destinyWallet = walletRepository.findById(transfer.getDestinyAccount());
+        Wallet originWallet = walletRepository.findById(transfer.getOriginWallet().getId());
+        Wallet destinyWallet = walletRepository.findById(transfer.getDestinyWallet().getId());
         BigDecimal amount = transfer.getAmount();
         
         if (originWallet.getAccountBalance().compareTo(amount) < 0)

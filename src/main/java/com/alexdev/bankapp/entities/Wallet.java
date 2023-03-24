@@ -3,7 +3,6 @@ package com.alexdev.bankapp.entities;
 import java.math.BigDecimal;
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,10 +32,15 @@ public class Wallet {
     @Column(name ="ID_USER_PROPIETARY")
     private long walletPropietary;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Transfer> transferHistory;
-    
     @JsonManagedReference
+    @OneToMany(mappedBy="originWallet")
+    private List<Transfer> transferHistorySends;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy="destinyWallet")
+    private List<Transfer> transferHistoryReceivs;
+    
+    @JsonManagedReference("wallet-deposit")
     @OneToMany(mappedBy="wallet")
     private List<Deposit> depositHistory;
 }

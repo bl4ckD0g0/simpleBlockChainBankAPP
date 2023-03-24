@@ -3,11 +3,13 @@ package com.alexdev.bankapp.entities;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,17 +26,18 @@ public class Transfer {
     @Column(name ="ID")
     @GeneratedValue
     private long id;
+    
+    @ManyToOne
+    @JsonBackReference("origin-wallet")
+    private Wallet originWallet;
 
-    @Column(name ="ID_DESTINY_ACCOUNT")
-    @JoinColumn(name = "id")
-    private long destinyAccount;
+    @ManyToOne
+    @JsonBackReference("destiny-wallet")
+    private Wallet destinyWallet;
 
     @Column(name ="AMOUNT")
     private BigDecimal amount;
 
     @Column(name ="TRANSFERDATE")
     private LocalDateTime transferDate;
-
-    @Column(name ="ID_ORIGIN_ACCOUNT")
-    private long originAccount;
 }
