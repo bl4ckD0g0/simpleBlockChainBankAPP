@@ -39,5 +39,5 @@ public class Transfer {
     private BigDecimal amount;
 
     @Column(name ="TRANSFERDATE")
-    private LocalDateTime transferDate;
+    private LocalDateTime Date;
 }

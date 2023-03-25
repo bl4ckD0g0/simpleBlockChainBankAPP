@@ -52,7 +52,7 @@ public class TransferServiceImpl implements TransferService {
         originWallet.setAccountBalance(originWallet.getAccountBalance().subtract(amount));
         destinyWallet.setAccountBalance(destinyWallet.getAccountBalance().add(amount));
      
-        transfer.setTransferDate(LocalDateTime.now());
+        transfer.setDate(LocalDateTime.now());
         transferRepository.save(transfer);
     }
 

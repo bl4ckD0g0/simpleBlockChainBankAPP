@@ -41,7 +41,7 @@ public class DepositServiceImpl implements DepositService {
         
         wallet.setAccountBalance(wallet.getAccountBalance().add(amount));
 
-        deposit.setTransferDate(LocalDateTime.now());
+        deposit.setDate(LocalDateTime.now());
         depositRepository.save(deposit);
     }
 }
