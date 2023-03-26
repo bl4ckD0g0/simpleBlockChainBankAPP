@@ -28,11 +28,11 @@ public class Transfer {
     private long id;
     
     @ManyToOne
-    @JsonBackReference("origin-wallet")
+    @JsonBackReference(value="origin-wallet")
     private Wallet originWallet;
 
     @ManyToOne
-    @JsonBackReference("destiny-wallet")
+    @JsonBackReference(value="destiny-wallet")
     private Wallet destinyWallet;
 
     @Column(name ="AMOUNT")

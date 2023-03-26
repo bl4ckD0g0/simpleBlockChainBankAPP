@@ -32,15 +32,15 @@ public class Wallet {
     @Column(name ="ID_USER_PROPIETARY")
     private long walletPropietary;
 
-    @JsonManagedReference
+    @JsonManagedReference(value="origin-wallet")
     @OneToMany(mappedBy="originWallet")
     private List<Transfer> transferHistorySends;
 
-    @JsonManagedReference
+    @JsonManagedReference(value="destiny-wallet")
     @OneToMany(mappedBy="destinyWallet")
     private List<Transfer> transferHistoryReceivs;
     
-    @JsonManagedReference("wallet-deposit")
+    @JsonManagedReference(value="wallet-deposit")
     @OneToMany(mappedBy="wallet")
     private List<Deposit> depositHistory;
 }

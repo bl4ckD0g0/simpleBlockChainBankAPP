@@ -30,7 +30,7 @@ public class Deposit {
     private long id;
 
     @ManyToOne
-    @JsonBackReference
+    @JsonBackReference(value="wallet-deposit")
     private Wallet wallet;
 
     @Column(name ="AMOUNT")
