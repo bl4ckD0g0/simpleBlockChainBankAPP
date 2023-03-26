@@ -1,4 +1,4 @@
-package com.alexdev.bankapp.services;
+package com.alexdev.bankapp.deposit.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -7,10 +7,9 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.alexdev.bankapp.entities.Deposit;
-import com.alexdev.bankapp.entities.Wallet;
-import com.alexdev.bankapp.repositories.DepositRepository;
-import com.alexdev.bankapp.repositories.WalletRepository;
+import com.alexdev.bankapp.deposit.infraestructure.DepositRepository;
+import com.alexdev.bankapp.wallet.domain.Wallet;
+import com.alexdev.bankapp.wallet.infraestructure.WalletRepository;
 
 public class DepositServiceImpl implements DepositService {
 

@@ -1,9 +1,8 @@
-package com.alexdev.bankapp.services;
+package com.alexdev.bankapp.wallet.domain;
 
 import java.util.List;
 
-import com.alexdev.bankapp.entities.Wallet;
-import com.alexdev.bankapp.services.WalletServiceImpl.UserNotFoundException;
+import com.alexdev.bankapp.wallet.domain.WalletServiceImpl.UserNotFoundException;
 
 public interface WalletService {
 

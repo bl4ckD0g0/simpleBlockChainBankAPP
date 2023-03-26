@@ -1,11 +1,10 @@
-package com.alexdev.bankapp.services;
+package com.alexdev.bankapp.wallet.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.alexdev.bankapp.entities.User;
-import com.alexdev.bankapp.entities.Wallet;
-import com.alexdev.bankapp.repositories.UserRepository;
-import com.alexdev.bankapp.repositories.WalletRepository;
+import com.alexdev.bankapp.user.domain.User;
+import com.alexdev.bankapp.user.infraestructure.UserRepository;
+import com.alexdev.bankapp.wallet.infraestructure.WalletRepository;
 
 import java.util.List;
 import java.util.Optional;

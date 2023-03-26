@@ -1,4 +1,4 @@
-package com.alexdev.bankapp.controllers;
+package com.alexdev.bankapp.user.application;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.alexdev.bankapp.entities.User;
-import com.alexdev.bankapp.services.UserService;
+import com.alexdev.bankapp.user.domain.User;
+import com.alexdev.bankapp.user.domain.UserService;
 
 import java.util.List;
 

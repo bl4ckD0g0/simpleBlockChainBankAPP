@@ -1,8 +1,6 @@
-package com.alexdev.bankapp.services;
+package com.alexdev.bankapp.transfer.domain;
 
 import java.util.List;
-
-import com.alexdev.bankapp.entities.Transfer;
 
 public interface TransferService {
 

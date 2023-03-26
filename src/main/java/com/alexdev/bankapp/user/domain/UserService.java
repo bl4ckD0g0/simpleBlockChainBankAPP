@@ -1,10 +1,8 @@
 
 
-package com.alexdev.bankapp.services;
+package com.alexdev.bankapp.user.domain;
 
 import java.util.List;
-
-import com.alexdev.bankapp.entities.User;
 
 public interface UserService {
 

@@ -1,10 +1,11 @@
-package com.alexdev.bankapp.repositories;
+package com.alexdev.bankapp.user.infraestructure;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
-import com.alexdev.bankapp.entities.User;
+
+import com.alexdev.bankapp.user.domain.User;
 
 public interface UserRepository extends CrudRepository<User, Long> {
 

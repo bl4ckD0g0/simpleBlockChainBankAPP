@@ -1,4 +1,4 @@
-package com.alexdev.bankapp.entities;
+package com.alexdev.bankapp.wallet.domain;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -12,6 +12,9 @@ import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import com.alexdev.bankapp.deposit.domain.Deposit;
+import com.alexdev.bankapp.transfer.domain.Transfer;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Data

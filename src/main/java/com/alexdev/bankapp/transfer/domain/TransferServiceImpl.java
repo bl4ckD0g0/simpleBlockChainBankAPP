@@ -1,22 +1,17 @@
-package com.alexdev.bankapp.services;
+package com.alexdev.bankapp.transfer.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.alexdev.bankapp.entities.Deposit;
-import com.alexdev.bankapp.entities.Transfer;
-import com.alexdev.bankapp.entities.Wallet;
-import com.alexdev.bankapp.repositories.TransferRepository;
-import com.alexdev.bankapp.repositories.WalletRepository;
+import com.alexdev.bankapp.transfer.infraestructure.TransferRepository;
+import com.alexdev.bankapp.wallet.domain.Wallet;
+import com.alexdev.bankapp.wallet.infraestructure.WalletRepository;
 
 import jakarta.transaction.Transactional;
-
-import java.util.Optional;
 
 public class TransferServiceImpl implements TransferService {
 

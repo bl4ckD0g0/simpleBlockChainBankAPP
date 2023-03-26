@@ -1,4 +1,4 @@
-package com.alexdev.bankapp.controllers;
+package com.alexdev.bankapp.deposit.application;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.alexdev.bankapp.entities.Deposit;
-import com.alexdev.bankapp.services.DepositService;
+import com.alexdev.bankapp.deposit.domain.Deposit;
+import com.alexdev.bankapp.deposit.domain.DepositService;
 
 @RestController
 public class DepositController {

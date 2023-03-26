@@ -1,10 +1,11 @@
-package com.alexdev.bankapp.controllers;
+package com.alexdev.bankapp.wallet.application;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.alexdev.bankapp.entities.Wallet;
-import com.alexdev.bankapp.services.WalletService;
-import com.alexdev.bankapp.services.WalletServiceImpl.UserNotFoundException;
+
+import com.alexdev.bankapp.wallet.domain.Wallet;
+import com.alexdev.bankapp.wallet.domain.WalletService;
+import com.alexdev.bankapp.wallet.domain.WalletServiceImpl.UserNotFoundException;
 
 import java.util.List;
 

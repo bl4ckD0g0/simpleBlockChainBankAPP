@@ -1,6 +1,8 @@
-package com.alexdev.bankapp.entities;
+package com.alexdev.bankapp.user.domain;
 
 import java.util.List;
+
+import com.alexdev.bankapp.wallet.domain.Wallet;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

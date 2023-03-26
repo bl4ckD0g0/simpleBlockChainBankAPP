@@ -1,4 +1,4 @@
-package com.alexdev.bankapp.controllers;
+package com.alexdev.bankapp.transfer.application;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.alexdev.bankapp.entities.Transfer;
-import com.alexdev.bankapp.services.TransferService;
+import com.alexdev.bankapp.transfer.domain.Transfer;
+import com.alexdev.bankapp.transfer.domain.TransferService;
 
 @RestController
 public class TransferController {
