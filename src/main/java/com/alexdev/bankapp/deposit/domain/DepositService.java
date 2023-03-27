@@ -6,5 +6,5 @@ public interface DepositService {
     
     Deposit getDeposit(Long id);
 
-    void createDeposit(Deposit transfer);
+    void createDeposit(Deposit deposit);
 }
