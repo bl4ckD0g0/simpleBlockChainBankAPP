@@ -22,7 +22,7 @@ import com.alexdev.bankapp.wallet.domain.WalletService;
 import com.alexdev.bankapp.wallet.domain.WalletServiceImpl.UserNotFoundException;
 
 @ExtendWith(MockitoExtension.class)
-public class WalletControllerTest {
+public class WalletTest {
 
     @Mock
     private WalletService walletService;

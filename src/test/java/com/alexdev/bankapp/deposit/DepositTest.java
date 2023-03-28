@@ -28,7 +28,7 @@ import com.alexdev.bankapp.wallet.domain.Wallet;
 
 @ExtendWith(MockitoExtension.class)
 @WebMvcTest(DepositController.class)
-public class DepositControllerTest {
+public class DepositTest {
 
     @Autowired
     private MockMvc mockMvc;

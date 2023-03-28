@@ -20,7 +20,7 @@ import com.alexdev.bankapp.transfer.domain.TransferService;
 import com.alexdev.bankapp.wallet.domain.Wallet;
 
 @ExtendWith(MockitoExtension.class)
-public class TransferControllerTest {
+public class TransferTest {
 
     @Mock
     private TransferService transferService;

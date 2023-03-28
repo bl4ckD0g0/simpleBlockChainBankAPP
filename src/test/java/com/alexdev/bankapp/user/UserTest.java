@@ -19,7 +19,7 @@ import com.alexdev.bankapp.user.domain.UserService;
 import com.alexdev.bankapp.user.domain.UserServiceImpl.UserNotFoundException;
 
 @SpringBootTest
-public class UserControllerTest {
+public class UserTest {
 
     @Mock
     private UserService userService;
