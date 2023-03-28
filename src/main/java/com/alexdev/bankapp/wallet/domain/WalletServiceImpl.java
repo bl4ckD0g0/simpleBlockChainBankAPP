@@ -30,7 +30,13 @@ public class WalletServiceImpl implements WalletService {
 
     @Override
     public void createWallet(Wallet wallet) throws UserNotFoundException {
+
         Optional<User> user = userRepository.findById(wallet.getWalletPropietary());
+        if(user == null)
+            System.out.println("user es null");
+        else
+            System.out.println("user no es null");
+        System.out.println(user);
         if(user.isPresent()) {
             walletRepository.save(wallet);
         } else {
@@ -38,7 +44,6 @@ public class WalletServiceImpl implements WalletService {
         }
     }
 
-    
     public class UserNotFoundException extends Exception {
         public UserNotFoundException(String message) {
             super(message);

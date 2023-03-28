@@ -27,6 +27,10 @@ public class WalletController {
 
 	@PostMapping("/wallets")
 	public void createWallet(@RequestBody Wallet wallet) throws UserNotFoundException {
+		if(walletService == null)
+		System.out.println("aja");
+	  else
+		  System.out.println("no aja");
 		walletService.createWallet(wallet);
 	}
 }

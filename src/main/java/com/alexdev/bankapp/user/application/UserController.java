@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.alexdev.bankapp.user.domain.User;
 import com.alexdev.bankapp.user.domain.UserService;
+import com.alexdev.bankapp.user.domain.UserServiceImpl.UserNotFoundException;
 
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class UserController {
 	}
 
 	@GetMapping("/users/{id}")
-	public User getUser(@PathVariable Long id) {
+	public User getUser(@PathVariable Long id) throws UserNotFoundException {
 		return userService.getUser(id);
 	}
 

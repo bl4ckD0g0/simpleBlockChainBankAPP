@@ -19,16 +19,25 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUser(Long id) {
+    public User getUser(Long id) throws UserNotFoundException {
         Optional<User> optionalUser = userRepository.findById(id);
-        if(optionalUser.isPresent())
+        if (optionalUser.isPresent()) {
             return optionalUser.get();
-        return null;
+        } else {
+            throw new UserNotFoundException("User not found with id " + id);
+        }
     }
+    
 
     @Override
     public void createUser(User user) {
         userRepository.save(user);
+    }
+
+    public class UserNotFoundException extends Exception {
+        public UserNotFoundException(String errorMessage) {
+            super(errorMessage);
+        }
     }
 
 }

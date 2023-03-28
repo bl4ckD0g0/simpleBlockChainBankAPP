@@ -16,6 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.alexdev.bankapp.user.application.UserController;
 import com.alexdev.bankapp.user.domain.User;
 import com.alexdev.bankapp.user.domain.UserService;
+import com.alexdev.bankapp.user.domain.UserServiceImpl.UserNotFoundException;
 
 @SpringBootTest
 public class UserControllerTest {
@@ -43,7 +44,7 @@ public class UserControllerTest {
     }
 
     @Test
-    public void testGetUser() {
+    public void testGetUser() throws UserNotFoundException {
         User user = new User();
         user.setId(1L);
         user.setFullName("John Doe");

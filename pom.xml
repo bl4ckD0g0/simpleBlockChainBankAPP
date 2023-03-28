@@ -6,13 +6,13 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.0.4</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 	<groupId>com.alexdev</groupId>
 	<artifactId>bankapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>bankapp</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Demo project with Spring Boot for IOBuilders PoC</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
